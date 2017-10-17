@@ -1,0 +1,4 @@
+Name,Description,Type,Attack,Hp,Cost
+Mariner,strong against Larvas,light,1,3,5
+Banshee,strong against Drones,medium,2,6,7
+Liberator,strong against Overlords,heavy,3,10,12

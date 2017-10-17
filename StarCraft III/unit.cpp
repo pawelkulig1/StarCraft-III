@@ -1,7 +1,7 @@
 #include "libs.h"
 #include "unit.h"
 
-Unit::Unit(string name, string type, int attack, int maxHp)
+Unit::Unit(std::string name, std::string type, int attack, int maxHp)
 {
 	setname(name);
 	settype(type);
@@ -9,29 +9,36 @@ Unit::Unit(string name, string type, int attack, int maxHp)
 	sethp(maxHp); //initial hp is maxhp
 	setmaxHp(maxHp);
 	setalive(1);
+    //Unit::objCounter++;
 }
 
 Unit::Unit()
 {
 	setalive(1);
+    //Unit::objCounter++;
 }
 
-void Unit::setname(string name)
+Unit::~Unit()
+{
+    //Unit::objCounter--;
+}
+
+void Unit::setname(std::string name)
 {
 	this->name = name;
 }
 
-string Unit::getname()
+std::string Unit::getname()
 {
 	return name;
 }
 
-void Unit::settype(string type)
+void Unit::settype(std::string type)
 {
 	this->type = type;
 }
 
-string Unit::gettype()
+std::string Unit::gettype()
 {
 	return type;
 }
@@ -79,12 +86,12 @@ int Unit::getcost()
 	return cost;
 }
 
-void Unit::setdescription(string description)
+void Unit::setdescription(std::string description)
 {
 	this->description = description;
 }
 
-string Unit::getdescription()
+std::string Unit::getdescription()
 {
 	return description;
 }
@@ -98,15 +105,15 @@ bool Unit::getalive()
 	return alive;
 }
 
-bool Unit::initializeFromFile(int number, string filename)
+bool Unit::initializeFromFile(int number, std::string filename)
 {
 	CSVparser parser(filename);
 	parser.parse();
 	name = parser.getNameWithNumber(number);
 	if(name == "-1")
 		return false; //row doesn't exists
-	description = parser.getStringAttributeOfName(name, "Description");
-	type = parser.getStringAttributeOfName(name, "Type");
+	description = parser.getstringAttributeOfName(name, "Description");
+	type = parser.getstringAttributeOfName(name, "Type");
 	attack = parser.getIntAttributeOfName(name, "Attack");
 	hp = maxHp = parser.getIntAttributeOfName(name, "Hp");
 	cost = parser.getIntAttributeOfName(name, "Cost");
@@ -118,25 +125,32 @@ Unit Unit::operator*(Unit u)
 {
 	int prevHp1 = u.gethp(), prevHp2 = this->gethp();
 
-	u.sethp(u.gethp()-this->attack);
-	cout<<this->getname()<<"["<<prevHp2<<" HP]"<<"("<<this->getattack()<<" dmg)--> "<<u.getname()<<"["<<prevHp1<<" HP --> "<<u.gethp()<<" HP]"<<endl;
+    u.sethp(u.gethp()-(this->attack + Unit::additionalAttack));
+    std::cout<<this->getname()<<"["<<prevHp2<<" HP]"<<"("<<this->getattack() + Unit::additionalAttack<<" dmg)--> "<<u.getname()<<"["<<prevHp1<<" HP --> "<<u.gethp()<<" HP]"<<std::endl;
 	
 	sethp(this->gethp() - u.getattack());
 
-	cout<<u.getname()<<"["<<u.gethp()<<" HP]"<<"("<<u.getattack()<<" dmg)--> "<<this->getname()<<"["<<prevHp2<<" HP --> "<<this->gethp()<<" HP]"<<endl;
-	cout<<endl;
+	std::cout<<u.getname()<<"["<<u.gethp()<<" HP]"<<"("<<u.getattack()<<" dmg)--> "<<this->getname()<<"["<<prevHp2<<" HP --> "<<this->gethp()<<" HP]"<<std::endl;
+	std::cout<<std::endl;
 	return u;
 }
 
 Unit Unit::operator+(Unit u)
 {
-	u.sethp(u.gethp()-this->attack);
-	if(!u.getalive())
+    int prevHp1 = u.gethp(), prevHp2 = this->gethp();
+    
+    u.sethp(u.gethp()-(this->attack + Unit::additionalAttack));
+    std::cout<<this->getname()<<"["<<prevHp2<<" HP]"<<"("<<this->getattack() + Unit::additionalAttack<<" dmg)--> "<<u.getname()<<"["<<prevHp1<<" HP --> "<<u.gethp()<<" HP]"<<std::endl;
+	
+    if(!u.getalive())
 	{
 		return u;
 	}
 
-	this->hp -= u.getattack();
-	return u;
+    sethp(this->gethp() - u.getattack());
+    
+    std::cout<<u.getname()<<"["<<u.gethp()<<" HP]"<<"("<<u.getattack()<<" dmg)--> "<<this->getname()<<"["<<prevHp2<<" HP --> "<<this->gethp()<<" HP]"<<std::endl;
+    std::cout<<std::endl;
+    return u;
 
 }

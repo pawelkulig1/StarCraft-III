@@ -10,16 +10,16 @@
 
 class Player
 {
-    vector <Unit> defenceUnits;
-	Ui ui;
-	string name;
+    std::vector <Unit> defenceUnits;
+	//Ui ui;
+	std::string name;
 	int resources;
 	public:
 		Player(int startResources=30);
-		vector <Unit> getdefenceUnits();
-		void setdefenceUnits(vector <Unit> defenceUnits);
-		void setname(string name);
-		string getname();
+		std::vector <Unit> getdefenceUnits();
+		void setdefenceUnits(std::vector <Unit> defenceUnits);
+		void setname(std::string name);
+		std::string getname();
 		void setresources(int resources);
 		int getresources();
 		int buildDefence(Unit building);

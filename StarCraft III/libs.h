@@ -13,7 +13,7 @@
 //#include "ui.h"
 //#include "CSVparser.h"
 
-using namespace std;
+//using namespace std;
 
 //enum wtype {light, medium, heavy};
 

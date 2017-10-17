@@ -1,27 +1,42 @@
 #include "CSVparser.h"
 
 
-void CSVparser::setfilename(string filename)
+void CSVparser::setfilename(std::string filename)
 {
 	this->filename = filename;
 }
 
-string CSVparser::getfilename()
+CSVparser::CSVparser(CSVparser &parser)
 {
-	return filename;
+    filename = parser.getfilename();
+    
+    file.open(filename, std::ios::in | std::ios::out);
+    text = new std::string *[maxLines];
+    
+    for(int i=0;i<maxLines;i++)
+    {
+        text[i] = new std::string [maxWords];
+    }
+    
+    parse();
 }
 
-CSVparser::CSVparser(string filename)
+CSVparser::CSVparser(std::string filename)
 {
 	this->filename = filename;
-    file.open(filename, ios::in | ios::out);
-    text = new string *[maxLines];
+    file.open(filename, std::ios::in | std::ios::out);
+    text = new std::string *[maxLines];
 
     for(int i=0;i<maxLines;i++)
     {
-        text[i] = new string [maxWords];
+        text[i] = new std::string [maxWords];
     }
     //file.close();
+}
+
+std::string CSVparser::getfilename()
+{
+    return filename;
 }
 
 CSVparser::~CSVparser()
@@ -35,7 +50,7 @@ CSVparser::~CSVparser()
 
 void CSVparser::parse()
 {
-	string line;
+	std::string line;
     int i=0;
     while(getline(file,line))
     {
@@ -43,7 +58,7 @@ void CSVparser::parse()
     }
 }
 
-void CSVparser::split(string line, string separator, string *retStr)
+void CSVparser::split(std::string line, std::string separator, std::string *retStr)
 {
     int poz=0, prevPoz=0, i=0;
     while(1)
@@ -67,19 +82,19 @@ void CSVparser::drawTable(bool header)
 
  		if(i!=0 or header == 0)
  		{
- 			cout<<"| "<<i;
+ 			std::cout<<"| "<<i;
  		}
         for(int j=0;j<maxWords;j++)
         {
             if(text[i][j] == "")
                 continue;
-            cout<<" | "<<text[i][j];
+            std::cout<<" | "<<text[i][j];
         }
-        cout<<" |"<<endl;
+        std::cout<<" |"<<std::endl;
     }
 }
 
-string CSVparser::getNameWithNumber(int number)
+std::string CSVparser::getNameWithNumber(int number)
 {
 	if(text[number][0] == "")
 		return "-1";
@@ -87,7 +102,7 @@ string CSVparser::getNameWithNumber(int number)
 
 }
 
-int CSVparser::getIntAttributeOfName(string name, string attribute)
+int CSVparser::getIntAttributeOfName(std::string name, std::string attribute)
 {
 	for(int i=0;i<maxLines;i++)
     {
@@ -108,7 +123,7 @@ int CSVparser::getIntAttributeOfName(string name, string attribute)
     return -1;
 }
 
-string CSVparser::getStringAttributeOfName(string name, string attribute)
+std::string CSVparser::getstringAttributeOfName(std::string name, std::string attribute)
 {
 	for(int i=0;i<maxLines;i++)
     {
@@ -129,7 +144,7 @@ string CSVparser::getStringAttributeOfName(string name, string attribute)
     return "-1";
 }
 
-void CSVparser::addHighscore(string name, int highscore)
+void CSVparser::addHighscore(std::string name, int highscore)
 {
 	int temp = 0;
 	//where to put our highscore
@@ -149,28 +164,28 @@ void CSVparser::addHighscore(string name, int highscore)
 		}
 	}
 
-	//cout<<temp<<endl;
+	//std::cout<<temp<<std::endl;
 	filename = "resources/highscores";
-	fstream file2;
-    file2.open(filename, ios::trunc | ios::out);
+	std::fstream file2;
+    file2.open(filename, std::ios::trunc | std::ios::out);
     file2.close();
 
 
     file.clear(); //to be writeable
     
-  //   cout<<"test1"<<endl;
+  //   std::cout<<"test1"<<std::endl;
     for(int i=0;i<maxLines-1;i++)
     {
 
     	if(text[i][0] == "" && i > temp)
 			break;
     	if(i<temp)
-    		file << text[i][0]<<","<<text[i][1]<<endl;
+    		file << text[i][0]<<","<<text[i][1]<<std::endl;
     	if(i>temp)
-    		file << text[i-1][0]<<","<<text[i-1][1]<<endl;
+    		file << text[i-1][0]<<","<<text[i-1][1]<<std::endl;
     	if(i == temp)
 		{
-			file << name <<","<< highscore << endl;
+			file << name <<","<< highscore << std::endl;
 			continue;
 		}
 

@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		640C96001F92123A00A67391 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 640C95FF1F92123A00A67391 /* main.cpp */; };
+		640C960F1F921C3400A67391 /* attack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 640C96081F921C3400A67391 /* attack.cpp */; };
+		640C96101F921C3400A67391 /* CSVparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 640C960A1F921C3400A67391 /* CSVparser.cpp */; };
+		640C96111F921C3400A67391 /* mine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 640C960C1F921C3400A67391 /* mine.cpp */; };
+		640C96121F921C3400A67391 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 640C960E1F921C3400A67391 /* player.cpp */; };
+		640C96181F921C3E00A67391 /* ui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 640C96131F921C3D00A67391 /* ui.cpp */; };
+		640C961A1F921C3E00A67391 /* unit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 640C96171F921C3E00A67391 /* unit.cpp */; };
+		640C961D1F92934D00A67391 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 640C961C1F92934D00A67391 /* game.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +32,22 @@
 /* Begin PBXFileReference section */
 		640C95FC1F92123A00A67391 /* StarCraft III */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "StarCraft III"; sourceTree = BUILT_PRODUCTS_DIR; };
 		640C95FF1F92123A00A67391 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		640C96061F921C3400A67391 /* attack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attack.h; sourceTree = "<group>"; };
+		640C96071F921C3400A67391 /* player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = player.h; sourceTree = "<group>"; };
+		640C96081F921C3400A67391 /* attack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = attack.cpp; sourceTree = "<group>"; };
+		640C96091F921C3400A67391 /* CSVparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVparser.h; sourceTree = "<group>"; };
+		640C960A1F921C3400A67391 /* CSVparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CSVparser.cpp; sourceTree = "<group>"; };
+		640C960B1F921C3400A67391 /* libs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libs.h; sourceTree = "<group>"; };
+		640C960C1F921C3400A67391 /* mine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mine.cpp; sourceTree = "<group>"; };
+		640C960D1F921C3400A67391 /* mine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mine.h; sourceTree = "<group>"; };
+		640C960E1F921C3400A67391 /* player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
+		640C96131F921C3D00A67391 /* ui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ui.cpp; sourceTree = "<group>"; };
+		640C96141F921C3D00A67391 /* ui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ui.h; sourceTree = "<group>"; };
+		640C96151F921C3E00A67391 /* unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unit.h; sourceTree = "<group>"; };
+		640C96171F921C3E00A67391 /* unit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = unit.cpp; sourceTree = "<group>"; };
+		640C961B1F92933E00A67391 /* game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
+		640C961C1F92934D00A67391 /* game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
+		640C961E1F954E8400A67391 /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +80,23 @@
 		640C95FE1F92123A00A67391 /* StarCraft III */ = {
 			isa = PBXGroup;
 			children = (
+				640C961E1F954E8400A67391 /* resources */,
+				640C96131F921C3D00A67391 /* ui.cpp */,
+				640C96141F921C3D00A67391 /* ui.h */,
+				640C96171F921C3E00A67391 /* unit.cpp */,
+				640C96151F921C3E00A67391 /* unit.h */,
+				640C96081F921C3400A67391 /* attack.cpp */,
+				640C96061F921C3400A67391 /* attack.h */,
+				640C960A1F921C3400A67391 /* CSVparser.cpp */,
+				640C96091F921C3400A67391 /* CSVparser.h */,
+				640C960B1F921C3400A67391 /* libs.h */,
+				640C960C1F921C3400A67391 /* mine.cpp */,
+				640C960D1F921C3400A67391 /* mine.h */,
+				640C960E1F921C3400A67391 /* player.cpp */,
+				640C96071F921C3400A67391 /* player.h */,
 				640C95FF1F92123A00A67391 /* main.cpp */,
+				640C961B1F92933E00A67391 /* game.h */,
+				640C961C1F92934D00A67391 /* game.cpp */,
 			);
 			path = "StarCraft III";
 			sourceTree = "<group>";
@@ -120,6 +159,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				640C96001F92123A00A67391 /* main.cpp in Sources */,
+				640C961A1F921C3E00A67391 /* unit.cpp in Sources */,
+				640C96181F921C3E00A67391 /* ui.cpp in Sources */,
+				640C961D1F92934D00A67391 /* game.cpp in Sources */,
+				640C96121F921C3400A67391 /* player.cpp in Sources */,
+				640C96101F921C3400A67391 /* CSVparser.cpp in Sources */,
+				640C96111F921C3400A67391 /* mine.cpp in Sources */,
+				640C960F1F921C3400A67391 /* attack.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

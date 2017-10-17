@@ -39,9 +39,9 @@ void Attack::loadPossibleAttackers()
 	for(int i=0;i<3;i++)
 	{
 
-		unit.initializeFromFile(i+1, "resources/attacker.csv");
-		availAttackers.push_back(unit);
-		//cout<<attacker.ge
+		unit.initializeFromFile(i+1, "attacker.csv");
+        Attack::availAttackers.push_back(unit);
+		//std::cout<<attacker.ge
 	}
 }
 
@@ -53,37 +53,37 @@ void Attack::createUnitsToAttack()
 	{
 		if(day<3)
 		{
-			attacker.push_back(availAttackers[0]);
+            attacker.push_back(Attack::availAttackers[0]);
 		}
 		else
 		{
-			attacker.push_back(availAttackers[rand()%availAttackers.size()]);
+            attacker.push_back(Attack::availAttackers[rand()%Attack::availAttackers.size()]);
 		}
 
 	}
 }
 
-bool Attack::battle(vector <Unit> *defender)
+bool Attack::battle(std::vector <Unit> *defender)
 {
 
 	if(attacker.size()>0)
-		cout<<"Attacking units:"<<endl<<endl;
+		std::cout<<"Attacking units:"<<std::endl<<std::endl;
 
 	for(int i=0;i<attacker.size();i++)
 	{
-		cout<<attacker.at(i).getname()<<endl;
+		std::cout<<attacker.at(i).getname()<<std::endl;
 	}
 
-	cout<<endl<<endl;
+	std::cout<<std::endl<<std::endl;
 	if(attacker.size()>0)
-		cout<<"Defending units:"<<endl<<endl;
+		std::cout<<"Defending units:"<<std::endl<<std::endl;
 
 	for(int i=0;i<defender->size();i++)
 	{
-		cout<<defender->at(i).getname()<<endl;
+		std::cout<<defender->at(i).getname()<<std::endl;
 	}
 
-	cout<<endl<<endl;
+	std::cout<<std::endl<<std::endl;
 	
 
 	//simulateBattle
@@ -95,7 +95,7 @@ bool Attack::battle(vector <Unit> *defender)
 		{
 			if(attacker.at(i).getalive() == 0)
 			{
-				//cout<<"deleting attacker!"<<endl;
+				//std::cout<<"deleting attacker!"<<std::endl;
 				attacker.erase(attacker.begin()+i);
 				i=0;
 			}
@@ -105,7 +105,7 @@ bool Attack::battle(vector <Unit> *defender)
 		{
 			if(defender->at(i).getalive() == 0)
 			{
-				//cout<<"deleting defender!"<<endl;
+				//std::cout<<"deleting defender!"<<std::endl;
 				defender->erase(defender->begin()+i);
 				i=0;
 			}
@@ -129,7 +129,10 @@ bool Attack::battle(vector <Unit> *defender)
 
 		rnd1 = round(rand()%(defender->size()));
 		rnd2 = round(rand()%(attacker.size()));
-		defender->at(rnd1) = attacker.at(rnd2)*defender->at(rnd1);
+        if(Game::difficulty < 3)
+            defender->at(rnd1) = attacker.at(rnd2)*defender->at(rnd1);
+        else
+            defender->at(rnd1) = attacker.at(rnd2)+defender->at(rnd1);
 
 
 		// }

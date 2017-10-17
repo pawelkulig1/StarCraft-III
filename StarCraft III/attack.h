@@ -3,15 +3,16 @@
 
 #include "libs.h"
 #include "unit.h"
+#include "game.h"
 
 class Attack
 {
 	int day;
 	bool attackThisRound;
-	vector <Unit> availAttackers;
-	vector <Unit> attacker;
-
+	std::vector <Unit> attacker;
+    static std::vector <Unit> availAttackers;
 public:
+    
 	//constructors
 	Attack(int day);
 	
@@ -21,13 +22,14 @@ public:
 	bool getattackThisRound();
 	void setattackThisRound(bool attackThisRound);
 
-	void loadPossibleAttackers();
+    static void loadPossibleAttackers();
 
 	//methods
 	void checkIfAttack();
 	void createUnitsToAttack();
-	bool battle(vector <Unit> *defender);
+	bool battle(std::vector <Unit> *defender);
 	//1 - defenders win; 0 - attacker wins
 };
 
+//std::vector <Unit> Attack::availAttackers;
 #endif

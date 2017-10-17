@@ -1,0 +1,4 @@
+Name,Type,Attack,Hp,Cost
+Larva,light,1,1,1
+Drone,medium,2,2,2
+Overlord,heavy,4,4,4

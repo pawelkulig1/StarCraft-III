@@ -11,26 +11,28 @@
 
 class CSVparser
 {
-    fstream file;
-    string filename;
-    string **text;
+    std::fstream file;
+    std::string filename;
+    std::string **text;
 
-    public:
-        void setfilename(string filename);
-        string getfilename();
-        CSVparser(){};
-        CSVparser(string filename);
+public:
+    CSVparser(){};
+    CSVparser(std::string filename);
+    CSVparser(CSVparser &parser);
 
-        ~CSVparser();
+    ~CSVparser();
+    
+    std::string getfilename();
+    void setfilename(std::string filename);
 
-        void parse();
-        void split(string line, string separator, string *retStr);
-        void drawTable(bool header = 1);
-        string getNameWithNumber(int number);//starting with 1
-        int getIntAttributeOfName(string name, string attribute);
-        string getStringAttributeOfName(string name, string attribute);
-        //wtype enumConverter(string toConv);
-        void addHighscore(string name, int highscore);
+    void parse();
+    void split(std::string line, std::string separator, std::string *retStr);
+    void drawTable(bool header = 1);
+    std::string getNameWithNumber(int number);//starting with 1
+    int getIntAttributeOfName(std::string name, std::string attribute);
+    std::string getstringAttributeOfName(std::string name, std::string attribute);
+    //wtype enumConverter(std::string toConv);
+    void addHighscore(std::string name, int highscore);
 };
 
 #endif

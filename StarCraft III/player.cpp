@@ -4,33 +4,33 @@
 Player::Player(int startResources)
 {
 	//name
-	cout<<"Hello officer what is your name? (type in)"<<endl;
-	string temp;
-	cin >> temp;
+	std::cout<<"Hello officer what is your name? (type in)"<<std::endl;
+	std::string temp;
+	std::cin >> temp;
 	setname(temp);
-	ui.clearScreen();
-	cout<<"Welcome officer " + getname() + " you are in charge of this base! Be ready for attacks from all these stupid aliens!"<<endl;
-	ui.clearScreen(5);
+    Ui::clearScreen();
+	std::cout<<"Welcome officer " + getname() + " you are in charge of this base! Be ready for attacks from all these stupid aliens!"<<std::endl;
+    Ui::clearScreen(5);
 	//sleep(5);
 	setresources(startResources);
 }
 
-vector <Unit> Player::getdefenceUnits()
+std::vector <Unit> Player::getdefenceUnits()
 {
 	return defenceUnits;
 }
 
-void Player::setdefenceUnits(vector <Unit> defenceUnits)
+void Player::setdefenceUnits(std::vector <Unit> defenceUnits)
 {
 	this->defenceUnits = defenceUnits;
 }
 
-void Player::setname(string name)
+void Player::setname(std::string name)
 {
 	this->name = name;
 }
 
-string Player::getname()
+std::string Player::getname()
 {
 	return name;
 }
@@ -54,7 +54,7 @@ int Player::buildDefence(Unit defence)
 	}
 	else
 	{
-		ui.showMessage("Not enough resources to recruit: " + defence.getname());
+        Ui::showMessage("Not enough resources to recruit: " + defence.getname());
 	}
 
 	return 0;
