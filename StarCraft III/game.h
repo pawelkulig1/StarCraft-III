@@ -10,7 +10,10 @@
 #define game_h
 
 #include "player.h"
-#include "unit.h"
+#include "Units/UnitTerran.hpp"
+#include "Units/UnitProtos.hpp"
+#include "Units/UnitZerg.hpp"
+#include "Units/unit.h"
 #include "ui.h"
 #include "mine.h"
 #include "attack.h"

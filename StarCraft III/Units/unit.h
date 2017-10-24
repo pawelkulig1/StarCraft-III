@@ -4,7 +4,7 @@
 
 class Unit
 {
-    
+protected:
 	std::string name;
 	std::string description;
 	std::string type;
@@ -13,12 +13,12 @@ class Unit
 	int maxHp;
 	int cost;
 	bool alive; //1 - alive; 0 - dead
+    std::string filepath;
 
 public:
-    static int additionalAttack;
-    //static int additionalHp;
     
     Unit(std::string name, std::string type, int attack, int maxHp);
+    Unit(Unit &unit);
     Unit();
     ~Unit();
     
@@ -47,8 +47,11 @@ public:
 
     void setalive(bool alive);
     bool getalive();
+    
+    std::string getfilepath();
+    void setfilepath(std::string filepath);
 
-    bool initializeFromFile(int number, std::string filename = "defences.csv");
+    bool initializeFromFile(int number);
     /* Initializes object with data from file.
     Number is number of line to initialize from.
     (1 obj. - 1 line)*/

@@ -12,6 +12,18 @@ Unit::Unit(std::string name, std::string type, int attack, int maxHp)
     //Unit::objCounter++;
 }
 
+Unit::Unit(Unit &unit)
+{
+    this->name = unit.getname();
+    this->description = unit.getdescription();
+    this->type = unit.gettype();
+    this->attack = unit.getattack();
+    this->hp = unit.gethp();
+    this->maxHp = unit.getmaxHp();
+    this->cost = unit.getcost();
+    this->alive = unit.getalive();
+}
+
 Unit::Unit()
 {
 	setalive(1);
@@ -105,20 +117,14 @@ bool Unit::getalive()
 	return alive;
 }
 
-bool Unit::initializeFromFile(int number, std::string filename)
+std::string Unit::getfilepath()
 {
-	CSVparser parser(filename);
-	parser.parse();
-	name = parser.getNameWithNumber(number);
-	if(name == "-1")
-		return false; //row doesn't exists
-	description = parser.getstringAttributeOfName(name, "Description");
-	type = parser.getstringAttributeOfName(name, "Type");
-	attack = parser.getIntAttributeOfName(name, "Attack");
-	hp = maxHp = parser.getIntAttributeOfName(name, "Hp");
-	cost = parser.getIntAttributeOfName(name, "Cost");
-	
-	return true;
+    return this->filepath;
+}
+
+void Unit::setfilepath(std::string filepath)
+{
+    this->filepath = filepath;
 }
 
 Unit Unit::operator*(Unit u)
@@ -153,4 +159,21 @@ Unit Unit::operator+(Unit u)
     std::cout<<std::endl;
     return u;
 
+}
+
+bool Unit::initializeFromFile(int number)
+{
+    CSVparser parser(this->getfilepath());
+    parser.parse();
+    setname(parser.getNameWithNumber(number));
+    if(getname() == "-1")
+        return false; //row doesn't exists
+    setdescription(parser.getstringAttributeOfName(getname(), "Description"));
+    settype(parser.getstringAttributeOfName(getname(), "Type"));
+    setattack(parser.getIntAttributeOfName(getname(), "Attack"));
+    sethp(parser.getIntAttributeOfName(getname(), "Hp"));
+    setmaxHp(gethp());
+    setcost(parser.getIntAttributeOfName(getname(), "Cost"));
+    
+    return true;
 }
