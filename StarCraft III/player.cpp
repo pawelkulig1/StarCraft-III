@@ -7,6 +7,7 @@ Player::Player(int startResources)
     Ui::clearScreen(5);
     setrace(Ui::getPlayerRace());
 	setresources(startResources);
+    loadAvailUnits();
 }
 
 std::vector <Unit> Player::getunits()
@@ -56,29 +57,47 @@ int Player::getresources()
 
 void Player::loadAvailUnits()
 {
-    int i=0;
+    int i=1;
     bool ret = true;
-    Unit unit;
+    //Unit unit;
     if(race == "T")
     {
         UnitTerran unit;
+        while(true)
+        {
+            //std::cout<<"filepath: "<<unit.getfilepath()<<std::endl;
+            ret = unit.initializeFromFile(i++);
+            if(ret == 0)
+                break;
+            availUnits.push_back(unit);
+            //std::cout<<"name: "<<availUnits[i].getname()<<std::endl;
+        }
     }
     
     if(race == "P")
     {
         UnitProtos unit;
+        while(ret)
+        {
+            ret = unit.initializeFromFile(i++);
+            availUnits.push_back(unit);
+            //std::cout<<availUnits[i].getname()<<std::endl;
+        }
     }
     
     if(race == "Z")
     {
         UnitZerg unit;
+        while(ret)
+        {
+            ret = unit.initializeFromFile(i++);
+            availUnits.push_back(unit);
+            //std::cout<<availUnits[i].getname()<<std::endl;
+        }
     }
     
-    while(ret)
-    {
-        ret = unit.initializeFromFile(i++);
-        availUnits.push_back(unit);
-    }
+    
+    
     
 }
 

@@ -24,17 +24,21 @@ int Game::difficulty = 2;
 
 int main()
 {
-	Game game;
-	return 0;
+    Game game;
+    return 0;
     
+
+//    UnitTerran unit;
+//    std::cout<<unit.getfilepath()<<std::endl;
+//    std::cout<<unit.initializeFromFile(1)<<std::endl;
+//    std::cout<<unit.getname()<<std::endl;
+//
     
     /*Player player;
     std::cout<<player.getname()<<" - "<<player.getrace()<<std::endl;
-    
-    
-    Blasters blasterTechnology;
-    std::cout<<blasterTechnology.getlvl()<<std::endl;
-    std::cout<<blasterTechnology.getadditionalAttack()<<std::endl;*/
+
+    player.loadAvailUnits();*/
+    //player.getavailUnits();
     
     
 }

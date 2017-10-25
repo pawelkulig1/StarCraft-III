@@ -63,9 +63,9 @@ void Attack::createUnitsToAttack()
 	}
 }
 
-bool Attack::battle(std::vector <Unit> *defender)
+bool Attack::battle(Player *player)
 {
-
+    std::vector <Unit> playerUnits;
 	if(attacker.size()>0)
 		std::cout<<"Attacking units:"<<std::endl<<std::endl;
 
@@ -78,9 +78,11 @@ bool Attack::battle(std::vector <Unit> *defender)
 	if(attacker.size()>0)
 		std::cout<<"Defending units:"<<std::endl<<std::endl;
 
-	for(int i=0;i<defender->size();i++)
+	for(int i=0;i<player->getunits().size();i++)
 	{
-		std::cout<<defender->at(i).getname()<<std::endl;
+        playerUnits.push_back(player->getunits().at(i));
+        std::cout<<playerUnits[i].getname()<<std::endl;
+        
 	}
 
 	std::cout<<std::endl<<std::endl;
@@ -101,12 +103,12 @@ bool Attack::battle(std::vector <Unit> *defender)
 			}
 		}
 
-		for(int i=0;i<defender->size();i++)
+		for(int i=0;i<playerUnits.size();i++)
 		{
-			if(defender->at(i).getalive() == 0)
+			if(playerUnits[i].getalive() == 0)
 			{
 				//std::cout<<"deleting defender!"<<std::endl;
-				defender->erase(defender->begin()+i);
+				playerUnits.erase(playerUnits.begin()+i);
 				i=0;
 			}
 		}
@@ -114,11 +116,13 @@ bool Attack::battle(std::vector <Unit> *defender)
 
 		if(attacker.size() == 0)
 		{
+            player->setunits(playerUnits);
 			return 1;
 		}
 
-		if(defender->size() == 0)
+		if(playerUnits.size() == 0)
 		{
+            player->setunits(playerUnits);
 			return 0;
 		}
 
@@ -127,15 +131,12 @@ bool Attack::battle(std::vector <Unit> *defender)
 		int rnd1 = 0;
 		int rnd2 = 0;
 
-		rnd1 = round(rand()%(defender->size()));
+		rnd1 = round(rand()%(playerUnits.size()));
 		rnd2 = round(rand()%(attacker.size()));
         if(Game::difficulty < 3)
-            defender->at(rnd1) = attacker.at(rnd2)*defender->at(rnd1);
+            playerUnits[rnd1] = attacker[rnd2] * playerUnits[rnd1];
         else
-            defender->at(rnd1) = attacker.at(rnd2)+defender->at(rnd1);
-
-
-		// }
+            playerUnits[rnd1] = attacker[rnd2] + playerUnits[rnd1];
 	}
 }
 

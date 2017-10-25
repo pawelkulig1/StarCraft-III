@@ -4,6 +4,7 @@
 #include "libs.h"
 #include "Units/unit.h"
 #include "game.h"
+#include "player.h"
 
 class Attack
 {
@@ -27,7 +28,7 @@ public:
 	//methods
 	void checkIfAttack();
 	void createUnitsToAttack();
-	bool battle(std::vector <Unit> *defender);
+	bool battle(Player *player);
 	//1 - defenders win; 0 - attacker wins
 };
 

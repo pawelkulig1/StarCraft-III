@@ -18,7 +18,7 @@ public:
     UnitZerg();
     static int additionalAttack;
     static int additionalHp;
-    std::string filepath;
+    //std::string filepath;
     
 };
 

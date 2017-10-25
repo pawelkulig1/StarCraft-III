@@ -19,7 +19,7 @@ public:
     UnitProtos();
     static int additionalAttack;
     static int additionalHp;
-    std::string filepath; //path to file to get availUnits;
+    //std::string filepath; //path to file to get availUnits;
 };
 
 #endif /* UnitProtos_hpp */

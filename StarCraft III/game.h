@@ -29,7 +29,7 @@ public:
     Game();
 private:
     void start();
-    void endGame(Player player);
+    void endGame(Player *player);
     void endGame();
     int getdifficulty();
 };

@@ -139,18 +139,18 @@ void Game::start()
                 endGame(player);
             }
             
-            player->setunits(temp);
+            //player->setunits(temp);
         }
     }
     
 }
 
-void Game::endGame(Player player)
+void Game::endGame(Player *player)
 {
     std::cout<<"GAME OVER!"<<std::endl;
-    std::cout<<player.getname()<<" you have gained: "<<day*100<<" points."<<std::endl;
+    std::cout<<player->getname()<<" you have gained: "<<day*100<<" points."<<std::endl;
     CSVparser parser("highscores");
-    parser.addHighscore(player.getname(), day * 100 * Game::difficulty);
+    parser.addHighscore(player->getname(), day * 100 * Game::difficulty);
     exit(0);
 }
 
