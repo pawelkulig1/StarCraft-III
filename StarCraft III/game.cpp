@@ -15,7 +15,7 @@ Game::Game()
     int action = 0;
     while(true)
     {
-        action = ui.showMainMenu();
+        action = Ui::showMainMenu();
         //std::cout<<action<<std::endl;
         if(action == 1)
         {
@@ -24,12 +24,12 @@ Game::Game()
         
         if(action == 2)
         {
-            ui.showHighScores();
+            Ui::showHighScores();
         }
         
         if(action == 3)
         {
-            ui.showRules();
+            Ui::showRules();
         }
         
         if(action == 4)
@@ -42,22 +42,15 @@ Game::Game()
 void Game::start()
 {
     int action = 0;
-    Player player;
-    Mine mine;
-    std::vector <Unit> availDefs;
+    Player p;
+    Player *player = &p;
+    Mine m;
+    Mine *mine = &m;
     
-    
-    //Create avail Defences
-    Unit temp;
-    int i=0; //1 because 0 line in file is header
-    while(temp.initializeFromFile(i+1))
-    {
-        availDefs.push_back(temp);
-        i++;
-    }
+    player->loadAvailUnits();
     
     //set game difficulty level
-    Game::difficulty = ui.showLevelMenu();
+    Game::difficulty = Ui::showLevelMenu();
     if(Game::difficulty == 1)
     {
         //Unit::additionalAttack = 0; //TODO
@@ -81,29 +74,29 @@ void Game::start()
     //Game Loop
     while(1)
     {
-        ui.showStats(player.getname(), player.getresources(), day, player.getdefenceUnits());
+        Ui::showStats(player->getname(), player->getresources(), day, player->getunits());
         
-        action = ui.showMainActions();
+        action = Ui::showMainActions();
         
         //UPGRADE MINE
         if(action == 1)
         {
             Ui::clearScreen();
-            int temp = mine.nextLevelCost(); //save this before upgrading
-            int upgrade = mine.upgrade(player.getresources());
+            int temp = mine->nextLevelCost(); //save this before upgrading
+            int upgrade = mine->upgrade(player->getresources());
             if(upgrade == 1)
             {
-                player.setresources(player.getresources() - temp);
+                player->setresources(player->getresources() - temp);
             }
             
             if(upgrade == 0)
             {
-                ui.showMessage("Can't upgrade mine - not enough resources!");
+                Ui::showMessage("Can't upgrade mine - not enough resources!");
             }
             
             if(upgrade == -1)
             {
-                ui.showMessage("Operation aborted by user");
+                Ui::showMessage("Operation aborted by user");
             }
             
         }
@@ -113,40 +106,40 @@ void Game::start()
             //upgrade defences
             int action = 0;
             Ui::clearScreen();
-            action = ui.showBuildActions(availDefs);
+            /*action = ui.showBuildActions(availDefs);
             if(action == 1)
             {
-                player.buildDefence(availDefs[0]);
+                player.buildUnit(availDefs[0]);
             }
             
             if(action == 2)
             {
-                player.buildDefence(availDefs[1]);
+                player.buildUnit(availDefs[1]);
             }
             
             if(action == 3)
             {
-                player.buildDefence(availDefs[2]);
-            }
+                player.buildUnit(availDefs[2]);
+            }*/
         }
         
         if(action == 3)
         {
             day++;
-            player.setresources(player.getresources() + mine.getExtraction());
+            player->setresources(player->getresources() + mine->getExtraction());
             
             //attack or not
             Attack attack(day);
             bool result;
-            std::vector <Unit> temp;
-            temp = player.getdefenceUnits();
-            result = attack.battle(&temp);
+            //std::vector <Unit> temp;
+            //temp = player->getunits();
+            result = attack.battle(player);
             if(result == 0) //game end
             {
                 endGame(player);
             }
             
-            player.setdefenceUnits(temp);
+            player->setunits(temp);
         }
     }
     

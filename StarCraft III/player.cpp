@@ -3,26 +3,35 @@
 
 Player::Player(int startResources)
 {
-	//name
-	std::cout<<"Hello officer what is your name? (type in)"<<std::endl;
-	std::string temp;
-	std::cin >> temp;
-	setname(temp);
-    Ui::clearScreen();
-	std::cout<<"Welcome officer " + getname() + " you are in charge of this base! Be ready for attacks from all these stupid aliens!"<<std::endl;
+    setname(Ui::getPlayerName());
     Ui::clearScreen(5);
-	//sleep(5);
+    setrace(Ui::getPlayerRace());
 	setresources(startResources);
 }
 
-std::vector <Unit> Player::getdefenceUnits()
+std::vector <Unit> Player::getunits()
 {
-	return defenceUnits;
+	return units;
 }
 
-void Player::setdefenceUnits(std::vector <Unit> defenceUnits)
+std::vector <Unit> Player::getavailUnits()
 {
-	this->defenceUnits = defenceUnits;
+    return availUnits;
+}
+
+void Player::setunits(std::vector <Unit> units)
+{
+	this->units = units;
+}
+
+std::string Player::getrace()
+{
+    return this->race;
+}
+
+void Player::setrace(std::string race)
+{
+    this->race = race;
 }
 
 void Player::setname(std::string name)
@@ -45,16 +54,44 @@ int Player::getresources()
 	return resources;
 }
 
-int Player::buildDefence(Unit defence)
+void Player::loadAvailUnits()
 {
-	if(defence.getcost()<resources)
+    int i=0;
+    bool ret = true;
+    Unit unit;
+    if(race == "T")
+    {
+        UnitTerran unit;
+    }
+    
+    if(race == "P")
+    {
+        UnitProtos unit;
+    }
+    
+    if(race == "Z")
+    {
+        UnitZerg unit;
+    }
+    
+    while(ret)
+    {
+        ret = unit.initializeFromFile(i++);
+        availUnits.push_back(unit);
+    }
+    
+}
+
+int Player::buildUnit(Unit unit)
+{
+	if(unit.getcost()<resources)
 	{
-		defenceUnits.push_back(defence);
-		resources-=defence.getcost();
+		units.push_back(unit);
+		resources-=unit.getcost();
 	}
 	else
 	{
-        Ui::showMessage("Not enough resources to recruit: " + defence.getname());
+        Ui::showMessage("Not enough resources to recruit: " + unit.getname());
 	}
 
 	return 0;

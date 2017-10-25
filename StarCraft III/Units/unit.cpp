@@ -1,38 +1,10 @@
 #include "libs.h"
 #include "unit.h"
 
-/*Unit::Unit(std::string name, std::string type, int attack, int maxHp)
-{
-	setname(name);
-	settype(type);
-	setattack(attack);
-	sethp(maxHp); //initial hp is maxhp
-	setmaxHp(maxHp);
-	setalive(1);
-    //Unit::objCounter++;
-}
-
-Unit::Unit(Unit &unit)
-{
-    this->name = unit.getname();
-    this->description = unit.getdescription();
-    this->type = unit.gettype();
-    this->attack = unit.getattack();
-    this->hp = unit.gethp();
-    this->maxHp = unit.getmaxHp();
-    this->cost = unit.getcost();
-    this->alive = unit.getalive();
-}*/
-
 Unit::Unit()
 {
 	setalive(1);
     //Unit::objCounter++;
-}
-
-Unit::~Unit()
-{
-    //Unit::objCounter--;
 }
 
 void Unit::setname(std::string name)

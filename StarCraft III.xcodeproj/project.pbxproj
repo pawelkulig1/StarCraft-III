@@ -17,14 +17,12 @@
 		64AC4DD81F9F46490000F698 /* mine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4DD61F9F46490000F698 /* mine.cpp */; };
 		64AC4DE21F9F48110000F698 /* UnitTerran.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4DE01F9F48110000F698 /* UnitTerran.cpp */; };
 		64AC4DE51F9F48210000F698 /* UnitProtos.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4DE31F9F48210000F698 /* UnitProtos.cpp */; };
-		64AC4DE91F9F935E0000F698 /* Units.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4DE81F9F935E0000F698 /* Units.cpp */; };
 		64AC4DEC1F9F94C50000F698 /* UnitZerg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4DEA1F9F94C50000F698 /* UnitZerg.cpp */; };
 		64AC4DEF1F9F96370000F698 /* Research.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4DED1F9F96370000F698 /* Research.cpp */; };
 		64AC4DF21F9F96E50000F698 /* ResearchOffensive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4DF01F9F96E50000F698 /* ResearchOffensive.cpp */; };
 		64AC4DF51F9F96F50000F698 /* ResearchDefensive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4DF31F9F96F50000F698 /* ResearchDefensive.cpp */; };
 		64AC4DF81F9F9D7E0000F698 /* Blasters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4DF61F9F9D7E0000F698 /* Blasters.cpp */; };
 		64AC4DFB1F9F9D8F0000F698 /* Shields.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4DF91F9F9D8F0000F698 /* Shields.cpp */; };
-		64AC4DFD1F9F9FB50000F698 /* Research.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4DFC1F9F9FB50000F698 /* Research.cpp */; };
 		64AC4E051F9FA6A50000F698 /* test1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4E041F9FA6A50000F698 /* test1.swift */; };
 		64AC4E0C1F9FC03D0000F698 /* Healtkit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4E0A1F9FC03D0000F698 /* Healtkit.cpp */; };
 /* End PBXBuildFile section */
@@ -64,7 +62,6 @@
 		64AC4DE11F9F48110000F698 /* UnitTerran.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UnitTerran.hpp; sourceTree = "<group>"; };
 		64AC4DE31F9F48210000F698 /* UnitProtos.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UnitProtos.cpp; sourceTree = "<group>"; };
 		64AC4DE41F9F48210000F698 /* UnitProtos.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UnitProtos.hpp; sourceTree = "<group>"; };
-		64AC4DE81F9F935E0000F698 /* Units.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Units.cpp; sourceTree = "<group>"; };
 		64AC4DEA1F9F94C50000F698 /* UnitZerg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UnitZerg.cpp; sourceTree = "<group>"; };
 		64AC4DEB1F9F94C50000F698 /* UnitZerg.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UnitZerg.hpp; sourceTree = "<group>"; };
 		64AC4DED1F9F96370000F698 /* Research.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Research.cpp; sourceTree = "<group>"; };
@@ -77,7 +74,6 @@
 		64AC4DF71F9F9D7E0000F698 /* Blasters.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Blasters.hpp; sourceTree = "<group>"; };
 		64AC4DF91F9F9D8F0000F698 /* Shields.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shields.cpp; sourceTree = "<group>"; };
 		64AC4DFA1F9F9D8F0000F698 /* Shields.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shields.hpp; sourceTree = "<group>"; };
-		64AC4DFC1F9F9FB50000F698 /* Research.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Research.cpp; sourceTree = "<group>"; };
 		64AC4E021F9FA6A50000F698 /* test1.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test1.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64AC4E041F9FA6A50000F698 /* test1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test1.swift; sourceTree = "<group>"; };
 		64AC4E061F9FA6A50000F698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,7 +120,6 @@
 		640C95FE1F92123A00A67391 /* StarCraft III */ = {
 			isa = PBXGroup;
 			children = (
-				64AC4DE71F9F932D0000F698 /* tests */,
 				64AC4DDC1F9F467D0000F698 /* Units */,
 				64AC4DDB1F9F46740000F698 /* Researches */,
 				64AC4DDA1F9F466B0000F698 /* Mines */,
@@ -186,15 +181,6 @@
 				64AC4DEB1F9F94C50000F698 /* UnitZerg.hpp */,
 			);
 			path = Units;
-			sourceTree = "<group>";
-		};
-		64AC4DE71F9F932D0000F698 /* tests */ = {
-			isa = PBXGroup;
-			children = (
-				64AC4DE81F9F935E0000F698 /* Units.cpp */,
-				64AC4DFC1F9F9FB50000F698 /* Research.cpp */,
-			);
-			path = tests;
 			sourceTree = "<group>";
 		};
 		64AC4E031F9FA6A50000F698 /* test1 */ = {
@@ -304,11 +290,9 @@
 				64AC4DE51F9F48210000F698 /* UnitProtos.cpp in Sources */,
 				64AC4DF51F9F96F50000F698 /* ResearchDefensive.cpp in Sources */,
 				640C961D1F92934D00A67391 /* game.cpp in Sources */,
-				64AC4DFD1F9F9FB50000F698 /* Research.cpp in Sources */,
 				64AC4DF21F9F96E50000F698 /* ResearchOffensive.cpp in Sources */,
 				640C96121F921C3400A67391 /* player.cpp in Sources */,
 				640C96101F921C3400A67391 /* CSVparser.cpp in Sources */,
-				64AC4DE91F9F935E0000F698 /* Units.cpp in Sources */,
 				64AC4E0C1F9FC03D0000F698 /* Healtkit.cpp in Sources */,
 				64AC4DEC1F9F94C50000F698 /* UnitZerg.cpp in Sources */,
 				64AC4DE21F9F48110000F698 /* UnitTerran.cpp in Sources */,

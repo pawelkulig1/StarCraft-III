@@ -16,7 +16,7 @@ class Healthkit: public ResearchDefensive
 {
     Healthkit();
     int getadditionalHp();
-    void setadditionalHp(int additionalHp)
+    void setadditionalHp(int additionalHp);
     
     int getCost();
 };

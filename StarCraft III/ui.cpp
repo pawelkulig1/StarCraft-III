@@ -37,6 +37,34 @@ void Ui::showStats(std::string name, int resources, int day, std::vector <Unit> 
 	std::cout<<std::endl<<std::endl<<"===================================="<<std::endl;
 }
 
+std::string Ui::getPlayerName()
+{
+    std::cout<<"Hello officer what is your name? (type in)"<<std::endl;
+    std::string temp;
+    std::cin >> temp;
+    return temp;
+}
+
+std::string Ui::getPlayerRace()
+{
+    int choice;
+    std::cout<<"Choose race you want to play:"<<std::endl;
+    std::cout<<"1: Terran"<<std::endl;
+    std::cout<<"2: Protos"<<std::endl;
+    std::cout<<"3: Zerg"<<std::endl;
+    std::cin>>choice;
+    
+    if(choice == 1)
+        return "T";
+    if(choice == 2)
+        return "P";
+    if(choice == 3)
+        return "Z";
+    else
+        getPlayerRace();
+    return "-1";
+}
+
 bool Ui::showMineStats(int level, int extraction, int nextLevelExtraction, int cost)
 {
 	std::cout<<"===================================="<<std::endl<<std::endl;

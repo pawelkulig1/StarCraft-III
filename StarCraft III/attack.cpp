@@ -39,7 +39,7 @@ void Attack::loadPossibleAttackers()
 	for(int i=0;i<3;i++)
 	{
 
-		unit.initializeFromFile(i+1, "attacker.csv");
+		unit.initializeFromFile(i+1);
         Attack::availAttackers.push_back(unit);
 		//std::cout<<attacker.ge
 	}

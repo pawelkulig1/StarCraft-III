@@ -1,5 +1,6 @@
 #include "libs.h"
 #include "game.h"
+#include "Blasters.hpp"
 
 std::vector <Unit> Attack::availAttackers;
 
@@ -25,4 +26,15 @@ int main()
 {
 	Game game;
 	return 0;
+    
+    
+    /*Player player;
+    std::cout<<player.getname()<<" - "<<player.getrace()<<std::endl;
+    
+    
+    Blasters blasterTechnology;
+    std::cout<<blasterTechnology.getlvl()<<std::endl;
+    std::cout<<blasterTechnology.getadditionalAttack()<<std::endl;*/
+    
+    
 }
