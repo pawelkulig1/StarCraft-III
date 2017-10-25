@@ -24,18 +24,18 @@ protected:
     std::string name;
     std::string race;
 public:
-    std::vector<Unit> getavalUnits();
+    std::vector<Unit> getavailUnits();
     std::vector<Unit> getunits();
     std::string getname();
     std::string getrace();
     
-    void setavalUnits(std::vector<Unit> avalUnits);
+    void setavailUnits(std::vector<Unit> availUnits);
     void setunits(std::vector<Unit> units);
     void setname(std::string name);
     void setrace(std::string race);
     
     void loadAvailUnits();
-    int buildUnit(int unitNumber)=0;
+    virtual int buildUnit(int unitNumber)=0;
 };
 
 

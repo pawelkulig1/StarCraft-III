@@ -14,6 +14,7 @@ Human::Human(int startResources)
     Ui::clearScreen(5);
     setrace(Ui::getPlayerRace());
     setresources(startResources);
+    loadAvailUnits();
 }
 
 void Human::setresources(int resources)

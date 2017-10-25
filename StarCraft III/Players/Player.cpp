@@ -8,7 +8,7 @@
 
 #include "Player.hpp"
 
-std::vector<Unit> Player::getavalUnits()
+std::vector<Unit> Player::getavailUnits()
 {
     return availUnits;
 }
@@ -28,7 +28,7 @@ std::string Player::getrace()
     return race;
 }
 
-void Player::setavalUnits(std::vector<Unit> avalUnits)
+void Player::setavailUnits(std::vector<Unit> avalUnits)
 {
     this->availUnits = avalUnits;
 }

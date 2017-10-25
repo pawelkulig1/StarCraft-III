@@ -42,8 +42,12 @@ Game::Game()
 void Game::start()
 {
     int action = 0;
-    Player p;
-    Player *player = &p;
+    Human p;
+    Human *player = &p;
+    
+    SI s(0);
+    SI *si = &s;
+    
     Mine m;
     Mine *mine = &m;
     
@@ -51,23 +55,18 @@ void Game::start()
     Game::difficulty = Ui::showLevelMenu();
     if(Game::difficulty == 1)
     {
-        //Unit::additionalAttack = 0; //TODO
+        si->setadditionalAttack(0);
     }
     
     if(Game::difficulty == 2)
     {
-        //Unit::additionalAttack = 2; //TODO
+        si->setadditionalAttack(2);
     }
     
     if(Game::difficulty == 3)
     {
-        //Unit::additionalAttack = 4; //TODO
+        si->setadditionalAttack(4);
     }
-    
-    
-    
-    //Unit::additionalAttack =
-    Attack::loadPossibleAttackers();
     
     //Game Loop
     while(1)
@@ -117,13 +116,22 @@ void Game::start()
             player->setresources(player->getresources() + mine->getExtraction());
             
             //attack or not
-            Attack attack(day);
-            bool result;
-            result = attack.battle(player);
+            
+            si->checkIfAttack();
+            
+            bool result= 1;
+            if(si->getattackThisRound())
+            {
+                si->createUnitsToAttack();
+                result = si->battle(player);
+            }
+            
             if(result == 0) //game end
             {
                 endGame(player);
             }
+            
+            si->setday(day);
         }
     }
     

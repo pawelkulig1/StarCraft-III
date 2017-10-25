@@ -9,14 +9,14 @@
 #ifndef game_h
 #define game_h
 
-#include "player.h"
+#include "Human.hpp"
+#include "SI.hpp"
 #include "Units/UnitTerran.hpp"
 #include "Units/UnitProtos.hpp"
 #include "Units/UnitZerg.hpp"
 #include "Units/unit.h"
 #include "ui.h"
 #include "mine.h"
-#include "attack.h"
 
 class Game
 {

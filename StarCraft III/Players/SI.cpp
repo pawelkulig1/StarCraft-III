@@ -13,12 +13,21 @@ SI::SI(int day)
     this->day = day;
     checkIfAttack();
     choseRace();
+    loadAvailUnits();
     if(attackThisRound)
     {
-        loadAvailUnits();
         createUnitsToAttack();
-        //battle();
     }
+}
+
+void SI::setadditionalAttack(int additionalAttack)
+{
+    this->additionalAttack = additionalAttack;
+}
+
+int SI::getadditionalAttakc()
+{
+    return additionalAttack;
 }
 
 void SI::setday(int day)
@@ -45,7 +54,7 @@ void SI::checkIfAttack()
 {
     srand(time(NULL));
     int rnd = (rand()%10)+1;
-    
+    std::cout<<rnd<<" "<<day<<std::endl;
     if(day>rnd)
     {
         attackThisRound = 1;
@@ -72,6 +81,8 @@ void SI::createUnitsToAttack()
         }
     }
 }
+
+
 
 bool SI::battle(Player *player)
 {
@@ -167,4 +178,5 @@ int SI::buildUnit(int unitNumber)
         return -1;
     
     units.push_back(availUnits[unitNumber]);
+    return 1; //to get rid of compiler Xcode bullshit
 }

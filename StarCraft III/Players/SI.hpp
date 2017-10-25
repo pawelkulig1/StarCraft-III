@@ -18,10 +18,14 @@
 
 class SI: public Player
 {
+    int additionalAttack;
     int day;
     bool attackThisRound;
 public:
     SI(int day);
+    
+    void setadditionalAttack(int additionalAttack);
+    int getadditionalAttakc();
     
     void setday(int day);
     int getday();

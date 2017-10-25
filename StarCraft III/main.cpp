@@ -1,8 +1,8 @@
 #include "libs.h"
 #include "game.h"
-#include "Blasters.hpp"
+#include "SI.hpp"
 
-std::vector <Unit> Attack::availAttackers;
+//std::vector <Unit> Attack::availAttackers;
 
 //units bonuses
 
