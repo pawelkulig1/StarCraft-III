@@ -7,3 +7,40 @@
 //
 
 #include "Human.hpp"
+
+Human::Human(int startResources)
+{
+    setname(Ui::getPlayerName());
+    Ui::clearScreen(5);
+    setrace(Ui::getPlayerRace());
+    setresources(startResources);
+}
+
+void Human::setresources(int resources)
+{
+    this->resources = resources;
+}
+
+int Human::getresources()
+{
+    return resources;
+}
+
+int Human::buildUnit(int unitNumber)
+{
+    if(unitNumber > availUnits.size() || unitNumber < 0)
+        return -1;
+    if(availUnits[unitNumber].getcost()<resources)
+    {
+        units.push_back(availUnits[unitNumber]);
+        resources-=availUnits[unitNumber].getcost();
+    }
+    else
+    {
+        Ui::showMessage("Not enough resources to recruit: " + availUnits[unitNumber].getname());
+    }
+    
+    return 0;
+}
+
+

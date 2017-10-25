@@ -7,7 +7,7 @@
 //
 
 #include "Player.hpp"
-/*
+
 std::vector<Unit> Player::getavalUnits()
 {
     return availUnits;
@@ -47,4 +47,48 @@ void Player::setrace(std::string race)
 {
     this->race = race;
 }
-*/
+
+void Player::loadAvailUnits()
+{
+    //std::cout<<"loading avail units"<<std::endl;
+    int i=1;
+    bool ret = true;
+    //Unit unit;
+    if(race == "T")
+    {
+        UnitTerran unit;
+        while(true)
+        {
+            ret = unit.initializeFromFile(i++);
+            if(ret == 0)
+                break;
+            availUnits.push_back(unit);
+        }
+    }
+    
+    if(race == "P")
+    {
+        UnitProtos unit;
+        while(true)
+        {
+            ret = unit.initializeFromFile(i++);
+            if(ret == 0)
+                break;
+            availUnits.push_back(unit);
+            //std::cout<<availUnits[i].getname()<<std::endl;
+        }
+    }
+    
+    if(race == "Z")
+    {
+        UnitZerg unit;
+        while(true)
+        {
+            ret = unit.initializeFromFile(i++);
+            if(ret == 0)
+                break;
+            availUnits.push_back(unit);
+            //std::cout<<availUnits[i].getname()<<std::endl;
+        }
+    }
+}

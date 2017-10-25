@@ -9,8 +9,18 @@
 #ifndef Human_hpp
 #define Human_hpp
 
-
-
 #include <stdio.h>
+#include "Player.hpp"
+#include "ui.h"
+
+class Human: public Player
+{
+    int resources;
+public:
+    Human(int startResources=30);
+    void setresources(int resources);
+    int getresources();
+    int buildUnit(int unitNumber);
+};
 
 #endif /* Human_hpp */
