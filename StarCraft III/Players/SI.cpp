@@ -23,6 +23,10 @@ SI::SI(int day)
 void SI::setadditionalAttack(int additionalAttack)
 {
     this->additionalAttack = additionalAttack;
+    for(int i=0;i<availUnits.size();i++)
+    {
+        availUnits[i].setattack(availUnits[i].getattack()+additionalAttack);
+    }
 }
 
 int SI::getadditionalAttakc()
@@ -81,8 +85,6 @@ void SI::createUnitsToAttack()
         }
     }
 }
-
-
 
 bool SI::battle(Player *player)
 {

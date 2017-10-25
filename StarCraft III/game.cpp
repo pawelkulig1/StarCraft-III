@@ -110,7 +110,13 @@ void Game::start()
             }
         }
         
+        //Researches
         if(action == 3)
+        {
+            
+        }
+        
+        if(action == 4)
         {
             day++;
             player->setresources(player->getresources() + mine->getExtraction());
