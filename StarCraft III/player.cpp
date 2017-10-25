@@ -57,6 +57,7 @@ int Player::getresources()
 
 void Player::loadAvailUnits()
 {
+    std::cout<<"loading avail units"<<std::endl;
     int i=1;
     bool ret = true;
     //Unit unit;
@@ -101,7 +102,7 @@ void Player::loadAvailUnits()
 
 int Player::buildUnit(int unitNumber)
 {
-    if(unitNumber > availUnits.size() || unitNumber < 1)
+    if(unitNumber > availUnits.size() || unitNumber < 0)
         return -1;
 	if(availUnits[unitNumber].getcost()<resources)
 	{

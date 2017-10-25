@@ -26,19 +26,4 @@ int main()
 {
     Game game;
     return 0;
-    
-
-//    UnitTerran unit;
-//    std::cout<<unit.getfilepath()<<std::endl;
-//    std::cout<<unit.initializeFromFile(1)<<std::endl;
-//    std::cout<<unit.getname()<<std::endl;
-//
-    
-    /*Player player;
-    std::cout<<player.getname()<<" - "<<player.getrace()<<std::endl;
-
-    player.loadAvailUnits();*/
-    //player.getavailUnits();
-    
-    
 }

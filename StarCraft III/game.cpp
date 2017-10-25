@@ -47,8 +47,6 @@ void Game::start()
     Mine m;
     Mine *mine = &m;
     
-    player->loadAvailUnits();
-    
     //set game difficulty level
     Game::difficulty = Ui::showLevelMenu();
     if(Game::difficulty == 1)
