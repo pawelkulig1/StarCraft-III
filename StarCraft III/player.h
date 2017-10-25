@@ -35,7 +35,7 @@ public:
     int getresources();
     
     void loadAvailUnits();
-    int buildUnit(Unit building);
+    int buildUnit(int unitNumber);
 
 };
 

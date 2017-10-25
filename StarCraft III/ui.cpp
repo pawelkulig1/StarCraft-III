@@ -136,7 +136,7 @@ void Ui::showDefenseStats()
 
 }
 
-int Ui::showBuildActions(std::vector <Unit> structure) //TODO std::vector
+int Ui::showBuildActions(std::vector <Unit> structure)
 {
 	clearScreen();
 	int action = 0;

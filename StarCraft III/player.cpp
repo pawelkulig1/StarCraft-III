@@ -65,21 +65,21 @@ void Player::loadAvailUnits()
         UnitTerran unit;
         while(true)
         {
-            //std::cout<<"filepath: "<<unit.getfilepath()<<std::endl;
             ret = unit.initializeFromFile(i++);
             if(ret == 0)
                 break;
             availUnits.push_back(unit);
-            //std::cout<<"name: "<<availUnits[i].getname()<<std::endl;
         }
     }
     
     if(race == "P")
     {
         UnitProtos unit;
-        while(ret)
+        while(true)
         {
             ret = unit.initializeFromFile(i++);
+            if(ret == 0)
+                break;
             availUnits.push_back(unit);
             //std::cout<<availUnits[i].getname()<<std::endl;
         }
@@ -88,29 +88,29 @@ void Player::loadAvailUnits()
     if(race == "Z")
     {
         UnitZerg unit;
-        while(ret)
+        while(true)
         {
             ret = unit.initializeFromFile(i++);
+            if(ret == 0)
+                break;
             availUnits.push_back(unit);
             //std::cout<<availUnits[i].getname()<<std::endl;
         }
     }
-    
-    
-    
-    
 }
 
-int Player::buildUnit(Unit unit)
+int Player::buildUnit(int unitNumber)
 {
-	if(unit.getcost()<resources)
+    if(unitNumber > availUnits.size() || unitNumber < 1)
+        return -1;
+	if(availUnits[unitNumber].getcost()<resources)
 	{
-		units.push_back(unit);
-		resources-=unit.getcost();
+		units.push_back(availUnits[unitNumber]);
+		resources-=availUnits[unitNumber].getcost();
 	}
 	else
 	{
-        Ui::showMessage("Not enough resources to recruit: " + unit.getname());
+        Ui::showMessage("Not enough resources to recruit: " + availUnits[unitNumber].getname());
 	}
 
 	return 0;

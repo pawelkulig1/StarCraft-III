@@ -106,21 +106,11 @@ void Game::start()
             //upgrade defences
             int action = 0;
             Ui::clearScreen();
-            /*action = ui.showBuildActions(availDefs);
-            if(action == 1)
+            action = Ui::showBuildActions(player->getavailUnits());
+            if(action != -1)
             {
-                player.buildUnit(availDefs[0]);
+                player->buildUnit(action-1);
             }
-            
-            if(action == 2)
-            {
-                player.buildUnit(availDefs[1]);
-            }
-            
-            if(action == 3)
-            {
-                player.buildUnit(availDefs[2]);
-            }*/
         }
         
         if(action == 3)
