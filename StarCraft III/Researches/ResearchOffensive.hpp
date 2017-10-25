@@ -29,6 +29,4 @@ public:
     void setadditionalAttack(int additionalAttack);
 };
 
-
-
 #endif /* ResearchOffensive_hpp */

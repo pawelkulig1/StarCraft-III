@@ -8,6 +8,7 @@ protected:
 	std::string name;
 	std::string description;
 	std::string type;
+    bool shield;
 	int attack;
 	int hp;
 	int maxHp;
@@ -17,10 +18,9 @@ protected:
 
 public:
     
-    Unit(std::string name, std::string type, int attack, int maxHp);
-    Unit(Unit &unit);
+    //Unit(std::string name, std::string type, int attack, int maxHp);
+    //Unit(Unit &unit);
     Unit();
-    ~Unit();
     
     //GETTERS/SETTERS
     
@@ -30,6 +30,9 @@ public:
     void settype(std::string type);
     std::string gettype();
 
+    void setshield(bool shield);
+    bool getshield();
+    
     void setattack(int attack);
     int getattack();
 

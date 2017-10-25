@@ -1,7 +1,7 @@
 #include "libs.h"
 #include "unit.h"
 
-Unit::Unit(std::string name, std::string type, int attack, int maxHp)
+/*Unit::Unit(std::string name, std::string type, int attack, int maxHp)
 {
 	setname(name);
 	settype(type);
@@ -22,7 +22,7 @@ Unit::Unit(Unit &unit)
     this->maxHp = unit.getmaxHp();
     this->cost = unit.getcost();
     this->alive = unit.getalive();
-}
+}*/
 
 Unit::Unit()
 {
@@ -53,6 +53,16 @@ void Unit::settype(std::string type)
 std::string Unit::gettype()
 {
 	return type;
+}
+
+void Unit::setshield(bool shield)
+{
+    this->shield = shield;
+}
+
+bool Unit::getshield()
+{
+    return this->shield;
 }
 
 void Unit::setattack(int attack)
@@ -130,10 +140,13 @@ void Unit::setfilepath(std::string filepath)
 Unit Unit::operator*(Unit u)
 {
 	int prevHp1 = u.gethp(), prevHp2 = this->gethp();
-
-    u.sethp(u.gethp()-(this->attack + Unit::additionalAttack));
-    std::cout<<this->getname()<<"["<<prevHp2<<" HP]"<<"("<<this->getattack() + Unit::additionalAttack<<" dmg)--> "<<u.getname()<<"["<<prevHp1<<" HP --> "<<u.gethp()<<" HP]"<<std::endl;
+    
+    //u.sethp(u.gethp()-(this->attack + u.additionalAttack));
+    //std::cout<<this->getname()<<"["<<prevHp2<<" HP]"<<"("<<this->getattack() + u.additionalAttack<<" dmg)--> "<<u.getname()<<"["<<prevHp1<<" HP --> "<<u.gethp()<<" HP]"<<std::endl;
 	
+    u.sethp(u.gethp()-(this->attack));
+    std::cout<<this->getname()<<"["<<prevHp2<<" HP]"<<"("<<this->getattack()<<" dmg)--> "<<u.getname()<<"["<<prevHp1<<" HP --> "<<u.gethp()<<" HP]"<<std::endl;
+    
 	sethp(this->gethp() - u.getattack());
 
 	std::cout<<u.getname()<<"["<<u.gethp()<<" HP]"<<"("<<u.getattack()<<" dmg)--> "<<this->getname()<<"["<<prevHp2<<" HP --> "<<this->gethp()<<" HP]"<<std::endl;
@@ -145,9 +158,13 @@ Unit Unit::operator+(Unit u)
 {
     int prevHp1 = u.gethp(), prevHp2 = this->gethp();
     
-    u.sethp(u.gethp()-(this->attack + Unit::additionalAttack));
-    std::cout<<this->getname()<<"["<<prevHp2<<" HP]"<<"("<<this->getattack() + Unit::additionalAttack<<" dmg)--> "<<u.getname()<<"["<<prevHp1<<" HP --> "<<u.gethp()<<" HP]"<<std::endl;
+    //u.sethp(u.gethp()-(this->attack + Unit::additionalAttack));
+    //std::cout<<this->getname()<<"["<<prevHp2<<" HP]"<<"("<<this->getattack() + Unit::additionalAttack<<" dmg)--> "<<u.getname()<<"["<<prevHp1<<" HP --> "<<u.gethp()<<" HP]"<<std::endl;
 	
+    u.sethp(u.gethp()-(this->attack));
+    
+    std::cout<<this->getname()<<"["<<prevHp2<<" HP]"<<"("<<this->getattack()<<" dmg)--> "<<u.getname()<<"["<<prevHp1<<" HP --> "<<u.gethp()<<" HP]"<<std::endl;
+    
     if(!u.getalive())
 	{
 		return u;

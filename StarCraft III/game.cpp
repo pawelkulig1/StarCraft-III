@@ -60,17 +60,17 @@ void Game::start()
     Game::difficulty = ui.showLevelMenu();
     if(Game::difficulty == 1)
     {
-        Unit::additionalAttack = 0;
+        //Unit::additionalAttack = 0; //TODO
     }
     
     if(Game::difficulty == 2)
     {
-        Unit::additionalAttack = 2;
+        //Unit::additionalAttack = 2; //TODO
     }
     
     if(Game::difficulty == 3)
     {
-        Unit::additionalAttack = 4;
+        //Unit::additionalAttack = 4; //TODO
     }
     
     
