@@ -25,6 +25,9 @@
 		64AC4DFB1F9F9D8F0000F698 /* Shields.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4DF91F9F9D8F0000F698 /* Shields.cpp */; };
 		64AC4E051F9FA6A50000F698 /* test1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4E041F9FA6A50000F698 /* test1.swift */; };
 		64AC4E0C1F9FC03D0000F698 /* Healtkit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4E0A1F9FC03D0000F698 /* Healtkit.cpp */; };
+		64AC4E101FA0B0A60000F698 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4E0E1FA0B0A60000F698 /* Player.cpp */; };
+		64AC4E131FA0B0B70000F698 /* Human.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4E111FA0B0B70000F698 /* Human.cpp */; };
+		64AC4E161FA0B0C30000F698 /* SI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64AC4E141FA0B0C30000F698 /* SI.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,6 +82,12 @@
 		64AC4E061F9FA6A50000F698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64AC4E0A1F9FC03D0000F698 /* Healtkit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Healtkit.cpp; sourceTree = "<group>"; };
 		64AC4E0B1F9FC03D0000F698 /* Healtkit.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Healtkit.hpp; sourceTree = "<group>"; };
+		64AC4E0E1FA0B0A60000F698 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		64AC4E0F1FA0B0A60000F698 /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
+		64AC4E111FA0B0B70000F698 /* Human.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Human.cpp; sourceTree = "<group>"; };
+		64AC4E121FA0B0B70000F698 /* Human.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Human.hpp; sourceTree = "<group>"; };
+		64AC4E141FA0B0C30000F698 /* SI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SI.cpp; sourceTree = "<group>"; };
+		64AC4E151FA0B0C30000F698 /* SI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SI.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +129,7 @@
 		640C95FE1F92123A00A67391 /* StarCraft III */ = {
 			isa = PBXGroup;
 			children = (
+				64AC4E0D1FA0B0840000F698 /* Players */,
 				64AC4DDC1F9F467D0000F698 /* Units */,
 				64AC4DDB1F9F46740000F698 /* Researches */,
 				64AC4DDA1F9F466B0000F698 /* Mines */,
@@ -190,6 +200,19 @@
 				64AC4E061F9FA6A50000F698 /* Info.plist */,
 			);
 			path = test1;
+			sourceTree = "<group>";
+		};
+		64AC4E0D1FA0B0840000F698 /* Players */ = {
+			isa = PBXGroup;
+			children = (
+				64AC4E0E1FA0B0A60000F698 /* Player.cpp */,
+				64AC4E0F1FA0B0A60000F698 /* Player.hpp */,
+				64AC4E111FA0B0B70000F698 /* Human.cpp */,
+				64AC4E121FA0B0B70000F698 /* Human.hpp */,
+				64AC4E141FA0B0C30000F698 /* SI.cpp */,
+				64AC4E151FA0B0C30000F698 /* SI.hpp */,
+			);
+			path = Players;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,8 +307,10 @@
 			files = (
 				640C96001F92123A00A67391 /* main.cpp in Sources */,
 				640C961A1F921C3E00A67391 /* unit.cpp in Sources */,
+				64AC4E101FA0B0A60000F698 /* Player.cpp in Sources */,
 				64AC4DFB1F9F9D8F0000F698 /* Shields.cpp in Sources */,
 				64AC4DD81F9F46490000F698 /* mine.cpp in Sources */,
+				64AC4E131FA0B0B70000F698 /* Human.cpp in Sources */,
 				640C96181F921C3E00A67391 /* ui.cpp in Sources */,
 				64AC4DE51F9F48210000F698 /* UnitProtos.cpp in Sources */,
 				64AC4DF51F9F96F50000F698 /* ResearchDefensive.cpp in Sources */,
@@ -295,6 +320,7 @@
 				640C96101F921C3400A67391 /* CSVparser.cpp in Sources */,
 				64AC4E0C1F9FC03D0000F698 /* Healtkit.cpp in Sources */,
 				64AC4DEC1F9F94C50000F698 /* UnitZerg.cpp in Sources */,
+				64AC4E161FA0B0C30000F698 /* SI.cpp in Sources */,
 				64AC4DE21F9F48110000F698 /* UnitTerran.cpp in Sources */,
 				64AC4DF81F9F9D7E0000F698 /* Blasters.cpp in Sources */,
 				640C960F1F921C3400A67391 /* attack.cpp in Sources */,

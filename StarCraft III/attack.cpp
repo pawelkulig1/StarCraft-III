@@ -2,9 +2,10 @@
 
 Attack::Attack(int day)
 {
+    
 	this->day = day;
 	checkIfAttack();
-
+    attackerRace = choseEnemyRace();
 	if(attackThisRound)
 	{
 		loadPossibleAttackers();
@@ -36,10 +37,12 @@ void Attack::setattackThisRound(bool attackThisRound)
 void Attack::loadPossibleAttackers()
 {
 	Unit unit;
-	for(int i=0;i<3;i++)
+    int i = 1;
+	while(true)
 	{
-
-		unit.initializeFromFile(i+1);
+		//.initializeFromFile(i+1);
+        if(attackerRace == "T")
+            UnitTerran unit;
         Attack::availAttackers.push_back(unit);
 		//std::cout<<attacker.ge
 	}
@@ -154,3 +157,17 @@ void Attack::checkIfAttack()
 		attackThisRound = 0;
 	}
 }
+
+std::string Attack::choseEnemyRace()
+{
+    srand(time(NULL));
+    int rnd = rand()%3;
+    if(rnd == 0)
+        return "T";
+    if(rnd == 1)
+        return "P";
+    if(rnd == 2)
+        return "Z";
+    return "-1"; //weird error should happen
+}
+

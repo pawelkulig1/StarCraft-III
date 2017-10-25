@@ -12,6 +12,7 @@ class Attack
 	bool attackThisRound;
 	std::vector <Unit> attacker;
     static std::vector <Unit> availAttackers;
+    static std::string attackerRace;
 public:
     
 	//constructors
@@ -29,6 +30,7 @@ public:
 	void checkIfAttack();
 	void createUnitsToAttack();
 	bool battle(Player *player);
+    static std::string choseEnemyRace();
 	//1 - defenders win; 0 - attacker wins
 };
 

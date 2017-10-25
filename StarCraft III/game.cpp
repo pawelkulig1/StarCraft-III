@@ -119,15 +119,11 @@ void Game::start()
             //attack or not
             Attack attack(day);
             bool result;
-            //std::vector <Unit> temp;
-            //temp = player->getunits();
             result = attack.battle(player);
             if(result == 0) //game end
             {
                 endGame(player);
             }
-            
-            //player->setunits(temp);
         }
     }
     
