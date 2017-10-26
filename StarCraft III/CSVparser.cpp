@@ -6,7 +6,12 @@ void CSVparser::setfilename(std::string filename)
 	this->filename = filename;
 }
 
-CSVparser::CSVparser(CSVparser &parser)
+CSVparser::CSVparser()
+{
+    std::cout<<"wrong constructor used!"<<std::endl;
+}
+
+/*CSVparser::CSVparser(CSVparser &parser)
 {
     filename = parser.getfilename();
     
@@ -19,18 +24,22 @@ CSVparser::CSVparser(CSVparser &parser)
     }
     
     parse();
-}
+}*/
 
 CSVparser::CSVparser(std::string filename)
 {
 	this->filename = filename;
     file.open(filename, std::ios::in | std::ios::out);
     text = new std::string *[maxLines];
-
+    
     for(int i=0;i<maxLines;i++)
     {
         text[i] = new std::string [maxWords];
     }
+
+    if(!file.good())
+        std::cout<<"error opening file"<<std::endl;
+    
     //file.close();
 }
 
@@ -146,15 +155,15 @@ std::string CSVparser::getstringAttributeOfName(std::string name, std::string at
     return "-1";
 }
 
-void CSVparser::addHighscore(std::string name, int highscore)
+int CSVparser::addHighscore(std::string name, int highscore)
 {
-	int temp = 0;
+	int temp = -1;
 	//where to put our highscore
 	parse();
 	//drawTable(0);
 	for(int i=0;i<maxLines; i++)
 	{
-		if(text[i][1]=="")
+        if(text[i][1]=="")
 		{
 			temp = i;
 			break;
@@ -165,9 +174,12 @@ void CSVparser::addHighscore(std::string name, int highscore)
 			break;
 		}
 	}
+    
+    if(temp == -1)
+        return -1; //highscore to low to get on highscore list
 
 	//std::cout<<temp<<std::endl;
-	filename = "resources/highscores";
+	filename = "highscores";
 	std::fstream file2;
     file2.open(filename, std::ios::trunc | std::ios::out);
     file2.close();
@@ -176,10 +188,11 @@ void CSVparser::addHighscore(std::string name, int highscore)
     file.clear(); //to be writeable
     
   //   std::cout<<"test1"<<std::endl;
+    //drawTable();
     for(int i=0;i<maxLines-1;i++)
     {
 
-    	if(text[i][0] == "" && i > temp)
+    	if(i > temp && text[i-1][0] == "")
 			break;
     	if(i<temp)
     		file << text[i][0]<<","<<text[i][1]<<std::endl;
@@ -193,6 +206,7 @@ void CSVparser::addHighscore(std::string name, int highscore)
 
     }	
     
+    return 1;
     //file.close();
 }
 

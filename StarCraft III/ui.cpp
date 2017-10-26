@@ -77,24 +77,30 @@ bool Ui::showMineStats(int level, int extraction, int nextLevelExtraction, int c
 void Ui::showHighScores()
 {
 	clearScreen();
-	std::string line;
+    CSVparser p("highscores");
+    p.parse();
+    std::cout<<"===================================="<<std::endl;
+    std::cout<<"Highscores:"<<std::endl<<std::endl;
+    p.drawTable(0);
+    std::cout<<"===================================="<<std::endl;
+	/*std::string line;
 	std::fstream file;
-	std::cout<<"===================================="<<std::endl;
-	std::cout<<"Highscores:"<<std::endl<<std::endl;
+     std::cout<<"===================================="<<std::endl;
+     std::cout<<"Highscores:"<<std::endl<<std::endl;
 	file.open("highscores");
 	if(file.is_open())
 	{
-		std::cout<<std::setw(23)<<std::left<<"| Name: "<<std::setw(6)<<std::left<<"| Score:"<<" |"<<std::endl;
+		std::cout<<std::setw(23)<<std::left<<"| Name: "<<std::setw(10)<<std::left<<"| Score:"<<" |"<<std::endl;
 		while ( getline (file,line) )
 		{
-			std::cout<<"| "<<std::setw(20)<< std::left <<line.substr(0, line.find(",")) << " | "<<std::setw(6)<<std::left<<line.substr(line.find(",")+1)<<" |"<<std::endl;
+			std::cout<<"| "<<std::setw(20)<< std::left <<line.substr(0, line.find(",")) << " | "<<std::setw(10)<<std::left<<line.substr(line.find(",")+1)<<" |"<<std::endl;
 		}
 	file.close();
 
 	std::cout<<"===================================="<<std::endl;
 	clearScreen(3);
     }
-    else std::cout << "Unable to open file";
+    else std::cout << "Unable to open file";*/
 }
 
 void Ui::showRules()

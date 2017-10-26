@@ -16,9 +16,9 @@ class CSVparser
     std::string **text;
 
 public:
-    CSVparser(){};
+    CSVparser();
     CSVparser(std::string filename);
-    CSVparser(CSVparser &parser);
+    //CSVparser(CSVparser &parser);
 
     ~CSVparser();
     
@@ -32,7 +32,7 @@ public:
     int getIntAttributeOfName(std::string name, std::string attribute);
     std::string getstringAttributeOfName(std::string name, std::string attribute);
     //wtype enumConverter(std::string toConv);
-    void addHighscore(std::string name, int highscore);
+    int addHighscore(std::string name, int highscore);
 };
 
 #endif

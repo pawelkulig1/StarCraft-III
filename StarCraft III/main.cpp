@@ -1,6 +1,6 @@
 #include "libs.h"
 #include "game.h"
-#include "SI.hpp"
+#include "CSVparser.h"
 
 //std::vector <Unit> Attack::availAttackers;
 
@@ -20,10 +20,11 @@ int UnitZerg::additionalHp = 0;
 
 int Game::difficulty = 2;
 
-
-
 int main()
 {
     Game game;
+    //CSVparser p("highscores");
+    //p.addHighscore("Pablo", 12);
+    
     return 0;
 }
