@@ -18,10 +18,9 @@ protected:
     std::string name;
     int lvl;
     int cost;
-    int nextLvlCost;
+    
 public:
     bool upgrade();
-    int getNextLvlCost();
     
     virtual std::string getname()=0;
     virtual int getlvl()=0;

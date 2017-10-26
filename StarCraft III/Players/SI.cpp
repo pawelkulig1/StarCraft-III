@@ -58,7 +58,6 @@ void SI::checkIfAttack()
 {
     srand(time(NULL));
     int rnd = (rand()%10)+1;
-    std::cout<<rnd<<" "<<day<<std::endl;
     if(day>rnd)
     {
         attackThisRound = 1;

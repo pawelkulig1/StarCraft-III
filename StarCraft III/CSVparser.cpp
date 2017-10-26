@@ -54,6 +54,8 @@ void CSVparser::parse()
     int i=0;
     while(getline(file,line))
     {
+        if(i>19)
+            break;
         split(line, ",", text[i++]);
     }
 }

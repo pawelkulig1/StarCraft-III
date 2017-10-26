@@ -28,14 +28,9 @@ int ResearchDefensive::getlvl()
     return this->lvl;
 }
 
-int ResearchDefensive::getadditionalHp()
+int ResearchDefensive::getbonus()
 {
-    return this->additionalHp;
-}
-
-int ResearchDefensive::getadditionalDefense()
-{
-    return this->additionalDefense;
+    return bonus;
 }
 
 void ResearchDefensive::setname(std::string name)

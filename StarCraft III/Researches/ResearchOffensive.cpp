@@ -28,9 +28,9 @@ int ResearchOffensive::getlvl()
     return this->lvl;
 }
 
-int ResearchOffensive::getadditionalAttack()
+int ResearchOffensive::getbonus()
 {
-    return this->additionalAttack;
+    return this->bonus;
 }
 
 void ResearchOffensive::setname(std::string name)

@@ -14,9 +14,5 @@ bool Research::upgrade()
     return 1;
 }
 
-int Research::getNextLvlCost()
-{
-    return this->cost + (this->lvl * this->nextLvlCost);
-}
 
 

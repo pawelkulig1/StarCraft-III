@@ -17,7 +17,7 @@ class Blasters: public ResearchOffensive
 public:
     Blasters();
     Blasters(int cost);
-    Blasters(int cost, int additionalAttack);
+    Blasters(int cost, int bonus);
     
     
 };

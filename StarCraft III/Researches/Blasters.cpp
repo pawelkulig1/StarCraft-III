@@ -12,19 +12,19 @@ Blasters::Blasters()
 {
     this->name = "Blasters";
     this->cost = 100;
-    this->additionalAttack = 1;
+    this->bonus = 1;
 }
 
 Blasters::Blasters(int cost)
 {
     this->name = "Blasters";
     this->cost = cost;
-    this->additionalAttack = 1;
+    this->bonus = 1;
 }
 
-Blasters::Blasters(int cost, int additionalAttack)
+Blasters::Blasters(int cost, int bonus)
 {
     this->name = "Blasters";
     this->cost = cost;
-    this->additionalAttack = additionalAttack;
+    this->bonus = bonus;
 }

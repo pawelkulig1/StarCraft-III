@@ -17,7 +17,7 @@ class Shields: public ResearchDefensive
 public:
     Shields();
     Shields(int cost);
-    Shields(int cost, int additionalDefensePerLvl);
+    Shields(int cost, int bonus);
 };
 
 #endif /* Shields_hpp */

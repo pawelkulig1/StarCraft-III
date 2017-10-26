@@ -4,6 +4,9 @@
 #include "libs.h"
 #include "CSVparser.h"
 #include "Units/unit.h"
+#include "Blasters.hpp"
+#include "Shields.hpp"
+#include "Healtkit.hpp"
 
 class Ui
 {
@@ -31,6 +34,14 @@ public:
     //DEFENCE
     static int showBuildActions(std::vector <Unit> structure); //todo std::vector
     static void showDefenseStats();
+    
+    //LAB
+    
+    static int showTechnologyCategories(std::vector<ResearchOffensive> ofensive, std::vector<ResearchDefensive> defensive);
+    static int showOfensiveTechnologyList(std::vector<ResearchOffensive> ofensive);
+    static int showDefensiveTechnologyList(std::vector<ResearchDefensive> defensive);
+    
+    
     
 };
 

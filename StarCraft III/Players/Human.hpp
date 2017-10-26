@@ -16,11 +16,20 @@
 class Human: public Player
 {
     int resources;
+    int additionalAttack;
+    int additionalHp;
 public:
     Human(int startResources=30);
     void setresources(int resources);
     int getresources();
+    
+    void setadditionalAttack(int additionalAttack);
+    int getadditionalAttack();
+    
+    void setadditionalHp(int additionalHp);
+    int getadditionalHp();
     int buildUnit(int unitNumber);
+    
 };
 
 #endif /* Human_hpp */

@@ -31,7 +31,7 @@ void Ui::showStats(std::string name, int resources, int day, std::vector <Unit> 
 		std::cout<<"No defences available"<<std::endl;
 	for(int i=0;i<units.size();i++)
 	{
-		std::cout<<"Name: "<<units[i].getname()<<" | HP: "<<units[i].gethp()<<"/"<<units[i].getmaxHp()<<std::endl;
+        std::cout<<"Name: "<<units[i].getname()<<" | HP: "<<units[i].gethp()<<"/"<<units[i].getmaxHp()<<" | DMG: "<<units[i].getattack()<<std::endl;
 	}
 
 	std::cout<<std::endl<<std::endl<<"===================================="<<std::endl;
@@ -115,7 +115,8 @@ int Ui::showMainActions()
 	std::cout<<"What do you want to do today?"<<std::endl;
 	std::cout<<"1) Upgrade your mine"<<std::endl;
 	std::cout<<"2) Upgrade defenses"<<std::endl;
-	std::cout<<"3) Next day"<<std::endl;
+    std::cout<<"3) Laboratory"<<std::endl;
+	std::cout<<"4) Next day"<<std::endl;
 	std::cin >> choice;
 	return choice;
 }
@@ -192,4 +193,58 @@ bool Ui::yesNoDialog(std::string text)
 		}
 	}
 
+}
+
+int Ui::showTechnologyCategories(std::vector<ResearchOffensive> ofensive, std::vector<ResearchDefensive> defensive) //todo universal
+{
+    int choice = 0;
+    int choice2 = 0;
+    std::cout<<"0: Cancel"<<std::endl;
+    std::cout<<"1: Ofensive"<<std::endl;
+    std::cout<<"2: Defensive"<<std::endl;
+    std::cin>>choice;
+    if(choice == 1)
+        choice2 = showOfensiveTechnologyList(ofensive);
+    if(choice == 2)
+        choice2 = showDefensiveTechnologyList(defensive);
+    if(choice == 0)
+        return 0;
+    if(choice2 == 0)
+        return 0;
+    
+    return choice * 100 + choice2;
+    //return choice;
+}
+
+int Ui::showOfensiveTechnologyList(std::vector<ResearchOffensive> ofensive)//todo universal
+{
+    int choice;
+    
+    std::cout<<"choice: "<<"name: "<<"cost: "<<"additional damage:"<<std::endl;
+    std::cout<<"0: Cancel"<<std::endl;
+    for(int i=0;i<ofensive.size();i++)
+    {
+        if(ofensive[i].getlvl()==0)
+        std::cout<<i+1<<": "<<ofensive[i].getname()<<" "<<ofensive[i].getcost()<<"  "<<ofensive[i].getbonus()<<std::endl;
+        else
+            std::cout<<"no more technologies available!"<<std::endl;
+    }
+    std::cin>>choice;
+    return choice;
+}
+
+int Ui::showDefensiveTechnologyList(std::vector<ResearchDefensive> defensive)//todo universal
+{
+    int choice;
+    std::cout<<"choice: "<<"name: "<<"cost: "<<"Bonus:"<<std::endl;
+    std::cout<<"0: Cancel"<<std::endl;
+    for(int i=0;i<defensive.size();i++)
+    {
+        if(defensive[i].getlvl()==0)
+        std::cout<<i+1<<": "<<defensive[i].getname()<<" "<<defensive[i].getcost()<<" "<<defensive[i].getbonus()<<std::endl;
+        else
+            std::cout<<"No more technologies avaliable!"<<std::endl;
+    }
+    std::cin>>choice;
+    return choice;
 }

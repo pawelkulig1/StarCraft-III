@@ -15,13 +15,13 @@
 class ResearchOffensive: public Research
 {
 protected:
-    int additionalAttack;
+    int bonus;
 public:
     ResearchOffensive();
     std::string getname();
     int getlvl();
     int getcost();
-    int getadditionalAttack();
+    int getbonus();
     
     void setname(std::string name);
     void setlvl(int lvl);

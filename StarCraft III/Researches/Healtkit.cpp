@@ -11,6 +11,6 @@
 Healthkit::Healthkit()
 {
     this->name = "Healthkit";
-    this->additionalHp = 1;
+    this->bonus = 1;
     this->cost = 100;
 }

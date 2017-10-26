@@ -15,8 +15,7 @@
 class ResearchDefensive: public Research
 {
 protected:
-    int additionalDefense;
-    int additionalHp;
+    int bonus;
     
 public:
     ResearchDefensive();
@@ -24,8 +23,7 @@ public:
     std::string getname();
     int getlvl();
     int getcost();
-    int getadditionalHp();
-    int getadditionalDefense();
+    int getbonus();
     
     void setname(std::string name);
     void setlvl(int lvl);

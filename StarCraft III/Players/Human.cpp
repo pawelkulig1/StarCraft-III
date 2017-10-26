@@ -27,6 +27,41 @@ int Human::getresources()
     return resources;
 }
 
+void Human::setadditionalAttack(int additionalAttack)
+{
+    this->additionalAttack = additionalAttack;
+    for(int i=0;i<units.size();i++)
+    {
+        units[i].setattack(units[i].getattack()+this->additionalAttack);
+    }
+    for(int i=0;i<availUnits.size();i++)
+    {
+        availUnits[i].setattack(availUnits[i].getattack()+this->additionalAttack);
+    }
+}
+int Human::getadditionalAttack()
+{
+    return additionalAttack;
+}
+
+void Human::setadditionalHp(int additionalHp)
+{
+    this->additionalHp = additionalHp;
+    for(int i=0;i<units.size();i++)
+    {
+        units[i].sethp(units[i].gethp()+this->additionalHp);
+    }
+    for(int i=0;i<availUnits.size();i++)
+    {
+        availUnits[i].sethp(availUnits[i].gethp()+this->additionalHp);
+    }
+}
+
+int Human::getadditionalHp()
+{
+    return additionalHp;
+}
+
 int Human::buildUnit(int unitNumber)
 {
     if(unitNumber > availUnits.size() || unitNumber < 0)

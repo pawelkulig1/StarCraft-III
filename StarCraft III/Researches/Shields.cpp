@@ -11,22 +11,21 @@
 Shields::Shields()
 {
     this->name = "Shields";
-    this->cost = 100;
-    this->additionalDefense = 1;
+    this->cost = 300;
+    this->bonus = 2;
 }
 
 Shields::Shields(int cost)
 {
     this->name = "Shields";
     this->cost = cost;
-    this->additionalDefense = 1;
+    this->bonus = 2;
 }
 
-Shields::Shields(int cost, int additionalDefense)
+Shields::Shields(int cost, int bonus)
 {
     this->name = "Shields";
     this->cost = cost;
-    this->nextLvlCost = nextLvlCost;
-    this->additionalDefense = additionalDefense;
+    this->bonus = bonus;
 }
 

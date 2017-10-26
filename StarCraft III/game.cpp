@@ -41,7 +41,6 @@ Game::Game()
 
 void Game::start()
 {
-    int action = 0;
     Human p;
     Human *player = &p;
     
@@ -50,6 +49,19 @@ void Game::start()
     
     Mine m;
     Mine *mine = &m;
+    
+    Blasters blasters;
+    Shields shields;
+    Healthkit healthkit;
+    
+    std::vector<ResearchDefensive> def;
+    std::vector<ResearchOffensive> off;
+    
+    off.push_back(blasters);
+    def.push_back(shields);
+    def.push_back(healthkit);
+    
+    int action = 0;
     
     //set game difficulty level
     Game::difficulty = Ui::showLevelMenu();
@@ -113,7 +125,54 @@ void Game::start()
         //Researches
         if(action == 3)
         {
+            int action = 0;
+            action = Ui::showTechnologyCategories(off, def);
+            if(action == 0)
+                continue;
+            if(action > 100 && action < 200) //offensive
+            {
+                action = action%100; //getting rid of 100
+                if(action == 1)
+                {
+                    if(off[0].getcost()<=player->getresources())
+                    {
+                        off[0].setlvl(1);
+                        player->setadditionalAttack(off[0].getbonus());
+                        player->setresources(player->getresources()-off[0].getcost());
+                    }
+                    else
+                        Ui::showMessage("Not enough resources");
+                }
+            }
             
+            if(action > 200 && action <300) //defensive
+            {
+                action = action%200;
+                if(action == 1)
+                {
+                    if(def[0].getcost()<=player->getresources())
+                    {
+                        def[0].setlvl(1);
+                        player->setadditionalHp(def[0].getbonus());
+                        player->setresources(player->getresources()-def[0].getcost());
+                    }
+                    else
+                        Ui::showMessage("Not enough resources");
+                }
+                if(action == 2)
+                {
+                    if(def[1].getcost()<=player->getresources())
+                    {
+                        def[1].setlvl(1);
+                        player->setadditionalHp(def[1].getbonus());
+                        player->setresources(player->getresources()-def[1].getcost());
+                    }
+                    else
+                    {
+                        Ui::showMessage("Not enough resources");
+                    }
+                }
+            }
         }
         
         if(action == 4)
@@ -146,7 +205,7 @@ void Game::start()
 void Game::endGame(Player *player)
 {
     std::cout<<"GAME OVER!"<<std::endl;
-    std::cout<<player->getname()<<" you have gained: "<<day*100<<" points."<<std::endl;
+    std::cout<<player->getname()<<" you have gained: "<<day*100*Game::difficulty<<" points."<<std::endl;
     CSVparser parser("highscores");
     parser.addHighscore(player->getname(), day * 100 * Game::difficulty);
     exit(0);
